@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.msf.metasploit"
+        minSdkVersion 18
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    compile "com.google.android.gms:play-services:8.3.0"
+    compile 'org.msgpack:msgpack-core:0.7.0-M6'
+
+    compile 'com.google.code.gson:gson:2.4'
+
+    compile('com.mikepenz:materialdrawer:4.6.1@aar') {
+        transitive = true
+    }
+    compile('com.mikepenz:aboutlibraries:5.3.2@aar') {
+        transitive = true
+    }
+    compile 'com.mikepenz:google-material-typeface:2.2.0.1@aar'
+    compile 'com.mikepenz:fontawesome-typeface:4.4.0.1@aar'
+
+    testCompile 'junit:junit:4.12'
+}

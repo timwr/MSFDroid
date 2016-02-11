@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <com.msfdroid.view.RpcServerView
+            android:id="@+id/rpcserverview_server"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></com.msfdroid.view.RpcServerView>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageview_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_edit" />
+
+    <ImageView
+        android:id="@+id/imageview_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_delete" />
+
+</LinearLayout>
