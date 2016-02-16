@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.msf.metasploit"
+        applicationId "com.msfdroid"
         minSdkVersion 18
         targetSdkVersion 23
         versionCode 1
