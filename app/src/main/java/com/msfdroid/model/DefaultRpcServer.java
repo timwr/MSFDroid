@@ -3,7 +3,7 @@ package com.msfdroid.model;
 public class DefaultRpcServer {
 
     public static RpcServer createDefaultRpcServer() {
-        if (true) {
+        if (false) {
             return createNetHunterRpcServer();
         }
         RpcServer rpcServer = new RpcServer();
@@ -11,6 +11,7 @@ public class DefaultRpcServer {
         rpcServer.rpcHost = Defaults.DEFAULT_HOST;
         rpcServer.rpcPassword = Defaults.DEFAULT_PASSWORD;
         rpcServer.rpcPort = Integer.valueOf(Defaults.DEFAULT_PORT);
+        rpcServer.ssl = true;
         return rpcServer;
     }
 
