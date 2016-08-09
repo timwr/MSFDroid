@@ -4,6 +4,9 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -70,6 +73,32 @@ public class TerminalFragment extends Fragment implements TerminalPresenter.Upda
         terminalPresenter = new TerminalPresenter();
         terminalPresenter.setTerminal(rpcServer.getRpc(), id, type);
         return view;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        if (terminalPresenter.getTerminal().type == Terminal.TYPE_METERPRETER) {
+            menu.clear();
+            MenuItem fav = menu.add(0, 0, 0, "webcam_snap");
+            fav.setIcon(android.R.drawable.ic_menu_camera);
+        } else {
+            menu.clear();
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == 0) {
+            edittextInput.setText("webcam_snap -p /var/www/html/c.jpeg -i 2");
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
