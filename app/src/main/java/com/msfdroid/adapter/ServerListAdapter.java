@@ -12,6 +12,7 @@ import com.msfdroid.Msf;
 import com.msfdroid.MsfServerList;
 import com.msfdroid.R;
 import com.msfdroid.activities.ServerDetailActivity;
+import com.msfdroid.model.MsfModel;
 import com.msfdroid.model.RpcServer;
 import com.msfdroid.view.RpcServerView;
 
@@ -28,6 +29,7 @@ public class ServerListAdapter extends ArrayAdapter<RpcServer> {
             if (view.getId() == R.id.imageview_delete) {
                 innerList.remove(position);
                 notifyDataSetChanged();
+                Msf.get().msfServerList.saveServerList();
             } else if (view.getId() == R.id.imageview_edit) {
                 Intent intent = new Intent(activity, ServerDetailActivity.class);
                 intent.putExtra(MsfServerList.RPC_SERVER_ID, position);

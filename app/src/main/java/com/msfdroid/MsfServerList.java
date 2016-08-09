@@ -87,13 +87,13 @@ public class MsfServerList {
                 rpcServers.add(rpcServer);
             }
             serverList.addAll(rpcServers);
-        } else {
-            if (BuildConfig.DEBUG) {
-//                RpcServer emulator = DefaultRpcServer.createDefaultRpcServer("10.0.2.2");
-                RpcServer autoConnect = DefaultRpcServer.createDefaultRpcServer();
-                serverList.add(autoConnect);
-                connectAsync(autoConnect);
-            }
+        }
+
+        if (serverList.size() == 0 && BuildConfig.DEBUG) {
+//            RpcServer emulator = DefaultRpcServer.createDefaultRpcServer("10.0.2.2");
+            RpcServer autoConnect = DefaultRpcServer.createDefaultRpcServer();
+            serverList.add(autoConnect);
+            connectAsync(autoConnect);
         }
     }
 
