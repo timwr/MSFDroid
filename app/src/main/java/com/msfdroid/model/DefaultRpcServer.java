@@ -11,7 +11,7 @@ public class DefaultRpcServer {
         rpcServer.rpcHost = Defaults.DEFAULT_HOST;
         rpcServer.rpcPassword = Defaults.DEFAULT_PASSWORD;
         rpcServer.rpcPort = Integer.valueOf(Defaults.DEFAULT_PORT);
-        rpcServer.ssl = true;
+        rpcServer.ssl = Defaults.DEFAULT_SSL;
         return rpcServer;
     }
 

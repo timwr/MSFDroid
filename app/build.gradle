@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
-        applicationId "com.msfdroid"
+        applicationId "com.msfdroid.rpc"
         minSdkVersion 18
         targetSdkVersion 23
         versionCode 1
@@ -30,22 +30,25 @@ android {
     }
 }
 
+
+ext {
+    versions = [
+            supportLib: '27.0.3',
+    ]
+}
+
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:design:23.1.1'
-    compile "com.google.android.gms:play-services:8.3.0"
-    compile 'org.msgpack:msgpack-core:0.7.0-M6'
+    //compile "com.google.android.gms:play-services:12.0.1"
+    implementation 'com.google.code.gson:gson:2.4'
+    implementation 'org.msgpack:msgpack-core:0.7.0-M6'
 
-    compile 'com.google.code.gson:gson:2.4'
-
-    compile('com.mikepenz:materialdrawer:4.6.1@aar') {
+    implementation("com.mikepenz:materialdrawer:6.0.8@aar") {
         transitive = true
     }
-    compile('com.mikepenz:aboutlibraries:5.3.2@aar') {
-        transitive = true
-    }
-    compile 'com.mikepenz:google-material-typeface:2.2.0.1@aar'
-    compile 'com.mikepenz:fontawesome-typeface:4.4.0.1@aar'
 
+    implementation "com.android.support:appcompat-v7:${versions.supportLib}"
+    implementation "com.android.support:recyclerview-v7:${versions.supportLib}"
+    implementation "com.android.support:support-annotations:${versions.supportLib}"
+    implementation "com.android.support:design:${versions.supportLib}"
     testCompile 'junit:junit:4.12'
 }
